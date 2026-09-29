@@ -19,11 +19,12 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 
-;;Set font to CaskaydiaCove Nerd Font Mono
-(let ((mono-spaced-font "CaskaydiaCove Nerd Font Mono")
+;;Set font to JetBrains Nerd Font Mono
+(let ((mono-spaced-font "JetBrainsMono Nerd Font")
       (proportionately-spaced-font "Sans"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 110)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
+
 ;;Set catppuccin-mocha theme
 (load-theme 'batppuccin-mocha t)
