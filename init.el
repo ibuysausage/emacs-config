@@ -40,6 +40,7 @@
 (require 'lsp-mode)
 (require 'nix-mode)
 (add-hook 'nix-mode-hook #'lsp)
+(add-hook 'rust-mode-hook #'lsp)
 
 (setq lsp-nix-nixd-server-path "nixd"
       lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
