@@ -30,7 +30,9 @@
 ;;Set catppuccin-mocha theme
 (load-theme 'batppuccin-mocha t)
 
-;;Lsp-mode
+;;Lsp + Autocomplete
+(setq lsp-keymap-prefix "C-l")
+
 (require 'lsp-mode)
 (require 'nix-mode)
 (add-hook 'nix-mode-hook #'lsp)
