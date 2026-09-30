@@ -34,6 +34,9 @@
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-format-buffer-on-save  t)
 
+(setq company-minimum-prefix-length 1
+      company-idle-delay 0.0) ;; default is 0.2
+
 (require 'lsp-mode)
 (require 'nix-mode)
 (add-hook 'nix-mode-hook #'lsp)
