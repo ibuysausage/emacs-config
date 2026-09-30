@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t; -*-
+;;Do M-x package-install-selected-packages on first run
 
 ;;Basic settings
 (menu-bar-mode -1) ;Disable top bar
@@ -7,7 +8,7 @@
 (global-display-line-numbers-mode 1); Add line numbers
 (setq make-backup-files nil); No backup files
 
-;;External packages
+;;External packages from Melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
@@ -28,3 +29,14 @@
 
 ;;Set catppuccin-mocha theme
 (load-theme 'batppuccin-mocha t)
+
+;;Lsp-mode
+(require 'lsp-mode)
+(require 'nix-mode)
+(add-hook 'nix-mode-hook #'lsp)
+
+(setq lsp-nix-nixd-server-path "nixd"
+      lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
+      lsp-nix-nixd-formatting-command ["alejandra"]
+      lsp-nix-nixd-nixos-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options"
+      lsp-nix-nixd-home-manager-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options.home-manager.users.type.getSubOptions []")
