@@ -31,7 +31,7 @@
 (load-theme 'batppuccin-mocha t)
 
 ;;Lsp + Autocomplete
-(setq lsp-keymap-prefix "C-l")
+(setq lsp-keymap-prefix "C-c l")
 
 (require 'lsp-mode)
 (require 'nix-mode)
