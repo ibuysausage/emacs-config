@@ -32,6 +32,7 @@
 
 ;;Lsp + Autocomplete
 (setq lsp-keymap-prefix "C-c l")
+(setq lsp-format-buffer-on-save  t)
 
 (require 'lsp-mode)
 (require 'nix-mode)
