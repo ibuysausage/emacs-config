@@ -47,3 +47,9 @@
       lsp-nix-nixd-formatting-command ["alejandra"]
       lsp-nix-nixd-nixos-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options"
       lsp-nix-nixd-home-manager-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options.home-manager.users.type.getSubOptions []")
+
+;; Check syntax everywhere
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+;; Show diagnostics inline, next to the code (in the spirit of Error Lens)
+(add-hook 'after-init-hook #'global-flycheck-annotate-mode)
