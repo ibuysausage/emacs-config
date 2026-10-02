@@ -1,6 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 ;;Do M-x package-install-selected-packages on first run
 
+;;Import files
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+(require 'eshell-zsh-like)
+
 ;;; Code:
 ;;Basic settings
 (menu-bar-mode -1) ;Disable top bar
