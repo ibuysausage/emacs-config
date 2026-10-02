@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 ;;Do M-x package-install-selected-packages on first run
 
+;;; Code:
 ;;Basic settings
 (menu-bar-mode -1) ;Disable top bar
 (tool-bar-mode -1) ;Disable tool bar
@@ -30,7 +31,24 @@
 ;;Set catppuccin-mocha theme
 (load-theme 'batppuccin-mocha t)
 
+;;Indent-blankline for emacs
+(add-hook 'rust-mode-hook #'indent-bars-mode)
+(add-hook 'nix-mode-hook #'indent-bars-mode)
+
 ;;Lsp + Autocomplete
+
+;;Silence warnings
+(defvar lsp-keymap-prefix)
+(defvar lsp-format-buffer-on-save)
+(defvar company-minimum-prefix-length)
+(defvar company-idle-delay)
+
+(defvar lsp-nix-nixd-server-path)
+(defvar lsp-nix-nixd-nixpkgs-expr)
+(defvar lsp-nix-nixd-formatting-command)
+(defvar lsp-nix-nixd-nixos-options-expr)
+(defvar lsp-nix-nixd-home-manager-options-expr)
+
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-format-buffer-on-save  t)
 
@@ -42,14 +60,17 @@
 (add-hook 'nix-mode-hook #'lsp)
 (add-hook 'rust-mode-hook #'lsp)
 
+;;Nixd configuaration
 (setq lsp-nix-nixd-server-path "nixd"
       lsp-nix-nixd-nixpkgs-expr "import <nixpkgs> { }"
       lsp-nix-nixd-formatting-command ["alejandra"]
       lsp-nix-nixd-nixos-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options"
       lsp-nix-nixd-home-manager-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options.home-manager.users.type.getSubOptions []")
 
+;;Flycheck
 ;; Check syntax everywhere
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; Show diagnostics inline, next to the code (in the spirit of Error Lens)
 (add-hook 'after-init-hook #'global-flycheck-annotate-mode)
+;;; init.el ends here
