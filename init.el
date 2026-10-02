@@ -49,9 +49,11 @@
 (defvar lsp-nix-nixd-nixos-options-expr)
 (defvar lsp-nix-nixd-home-manager-options-expr)
 
+;;Lsp-mode settings
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-format-buffer-on-save  t)
 
+;;Company settings
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.0) ;; default is 0.2
 
@@ -68,6 +70,7 @@
       lsp-nix-nixd-home-manager-options-expr "(builtins.getFlake \"/etc/nixos\").nixosConfigurations.wildfire.options.home-manager.users.type.getSubOptions []")
 
 ;;Flycheck
+
 ;; Check syntax everywhere
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
