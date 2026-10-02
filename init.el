@@ -38,6 +38,8 @@
 ;;Indent-blankline for emacs
 (add-hook 'rust-mode-hook #'indent-bars-mode)
 (add-hook 'nix-mode-hook #'indent-bars-mode)
+(add-hook 'haskell-mode-hook #'indent-bars-mode)
+(add-hook 'haskell-literate-mode-hook #'indent-bars-mode)
 
 ;;Lsp + Autocomplete
 
@@ -62,9 +64,10 @@
       company-idle-delay 0.0) ;; default is 0.2
 
 (require 'lsp-mode)
-(require 'nix-mode)
 (add-hook 'nix-mode-hook #'lsp)
 (add-hook 'rust-mode-hook #'lsp)
+(add-hook 'haskell-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
 
 ;;Nixd configuaration
 (setq lsp-nix-nixd-server-path "nixd"
