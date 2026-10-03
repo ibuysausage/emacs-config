@@ -41,7 +41,7 @@
 (add-hook 'nix-mode-hook #'indent-bars-mode)
 (add-hook 'haskell-mode-hook #'indent-bars-mode)
 (add-hook 'haskell-literate-mode-hook #'indent-bars-mode)
-(add-hook 'c-hook #'indent-bars-mode)
+(add-hook 'c-mode-hook #'indent-bars-mode)
 (add-hook 'c++-hook #'indent-bars-mode)
 
 ;;Auto pair mode
@@ -49,8 +49,8 @@
 (add-hook 'nix-mode-hook #'electric-pair-mode)
 (add-hook 'haskell-mode-hook #'electric-pair-mode)
 (add-hook 'haskell-literate-mode-hook #'electric-pair-mode)
-(add-hook 'c-hook #'electric-pair-mode)
-(add-hook 'c++-hook #'electric-pair-mode)
+(add-hook 'c-mode-hook #'electric-pair-mode)
+(add-hook 'c++-mode-hook #'electric-pair-mode)
 
 ;;Lsp + Autocomplete
 
