@@ -11,7 +11,7 @@
 (tool-bar-mode -1) ;Disable tool bar
 (scroll-bar-mode -1) ;Disable scroll bar
 (global-display-line-numbers-mode 1); Add line numbers
-(setq-default tab-width 2)
+(setq-default tab-width 2); Tab space to 2
 (setq make-backup-files nil); No backup files
 
 ;;External packages from Melpa
