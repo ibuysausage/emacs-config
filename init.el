@@ -44,6 +44,14 @@
 (add-hook 'c-hook #'indent-bars-mode)
 (add-hook 'c++-hook #'indent-bars-mode)
 
+;;Auto pair mode
+(add-hook 'rust-mode-hook #'electric-indent-mode)
+(add-hook 'nix-mode-hook #'electric-indent-mode)
+(add-hook 'haskell-mode-hook #'electric-indent-mode)
+(add-hook 'haskell-literate-mode-hook #'electric-indent-mode)
+(add-hook 'c-hook #'electric-indent-mode)
+(add-hook 'c++-hook #'electric-indent-mode)
+
 ;;Lsp + Autocomplete
 
 ;;Silence warnings
