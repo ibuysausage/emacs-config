@@ -40,6 +40,7 @@
 (add-hook 'nix-mode-hook #'indent-bars-mode)
 (add-hook 'haskell-mode-hook #'indent-bars-mode)
 (add-hook 'haskell-literate-mode-hook #'indent-bars-mode)
+(add-hook 'c-hook #'indent-bars-mode)
 
 ;;Lsp + Autocomplete
 
@@ -68,6 +69,7 @@
 (add-hook 'rust-mode-hook #'lsp)
 (add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'haskell-literate-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
 
 ;;Nixd configuaration
 (setq lsp-nix-nixd-server-path "nixd"

@@ -6,3 +6,5 @@ eln-cache/
 elpa
 .lsp*
 transient/
+eshell/
+lisp
