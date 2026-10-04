@@ -25,6 +25,29 @@
 (setq scroll-conservatively 10
       scroll-margin 10)
 
+;;Auto-dim inactive windows
+(add-hook 'after-init-hook (lambda ()
+    (when (fboundp 'auto-dim-other-buffers-mode)
+      (auto-dim-other-buffers-mode t))))
+
+(setq-default cursor-in-non-selected-windows nil)
+
+;;NO UGLY COLORS
+(require 'auto-dim-other-buffers)
+
+(set-face-attribute 'auto-dim-other-buffers nil
+                    :background "#11111b")
+(set-face-attribute 'auto-dim-other-buffers-hide nil
+                    :foreground "#11111b"
+                    :background "#11111b")
+
+(add-to-list 'auto-dim-other-buffers-affected-faces
+             '(line-number . (auto-dim-other-buffers . nil)))
+(add-to-list 'auto-dim-other-buffers-affected-faces
+             '(line-number-current-line . (auto-dim-other-buffers . nil)))
+
+(auto-dim-other-buffers-mode 1)
+
 ;;User generated options go in diff file
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
@@ -55,7 +78,10 @@
 (add-hook 'c-mode-hook #'electric-pair-mode)
 (add-hook 'c++-mode-hook #'electric-pair-mode)
 
+
+
 ;;Lsp + Autocomplete
+;;you know what i mean
 
 ;;Silence warnings
 (defvar lsp-keymap-prefix)
