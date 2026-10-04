@@ -14,6 +14,9 @@
 (setq-default tab-width 2); Tab space to 2
 (setq make-backup-files nil); No backup files
 
+;;Ace-window setup for easier window switch
+(global-set-key (kbd "M-o") 'ace-window)
+
 ;;External packages from Melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
