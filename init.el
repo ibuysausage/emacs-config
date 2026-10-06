@@ -5,6 +5,10 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (require 'eshell-zsh-like)
 
+;;User generated options go in diff file
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file :no-error-if-file-is-missing)
+
 ;;; Code:
 ;;Basic settings
 (menu-bar-mode -1) ;Disable top bar
@@ -47,10 +51,6 @@
              '(line-number-current-line . (auto-dim-other-buffers . nil)))
 
 (auto-dim-other-buffers-mode 1)
-
-;;User generated options go in diff file
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file :no-error-if-file-is-missing)
 
 ;;Set font to JetBrains Nerd Font Mono
 (let ((mono-spaced-font "JetBrainsMono Nerd Font")
