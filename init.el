@@ -53,7 +53,7 @@
 (auto-dim-other-buffers-mode 1)
 
 ;;Set font to JetBrains Nerd Font Mono
-(let ((mono-spaced-font "JetBrainsMono Nerd Font")
+(let ((mono-spaced-font "Iosevka Nerd Font")
       (proportionately-spaced-font "Sans"))
   (set-face-attribute 'default nil :family mono-spaced-font :height 110)
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
