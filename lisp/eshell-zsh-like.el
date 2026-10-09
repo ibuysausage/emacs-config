@@ -1,12 +1,15 @@
 ;;; eshell-zsh-like.el --- Eshell that mirrors zsh + oh-my-posh + fastfetch -*- lexical-binding: t; -*-
 
-;; Needs Emacs 29+. External tools: eza, bat, fastfetch, git (+ lazygit/nvim if you want them).
+;;; Commentary:
+;; Needs Emacs 29+.  External tools: eza, bat, fastfetch, git (+ lazygit/nvim if you want them).
 ;; Packages (MELPA / emacsPackages): esh-autosuggest, eshell-syntax-highlighting,
 ;; pcmpl-args, consult (optional, for the fzf-style C-r history search).
 
 ;;; ---------------------------------------------------------------
 ;;; Packages: autosuggestion, syntax highlighting, completion
 ;;; ---------------------------------------------------------------
+
+;;; Code:
 (use-package esh-autosuggest
   :hook (eshell-mode . esh-autosuggest-mode))
 
@@ -18,12 +21,9 @@
   :after eshell)
 
 ;;; ---------------------------------------------------------------
-;;; History + completion behaviour
+;;; Completion behaviour + C-r search
 ;;; ---------------------------------------------------------------
-(setq eshell-history-size 100000
-      eshell-hist-ignoredups t
-      eshell-save-history-on-exit t
-      eshell-cmpl-ignore-case t          ; like NO_CASE_GLOB / matcher-list
+(setq eshell-cmpl-ignore-case t          ; like NO_CASE_GLOB / matcher-list
       eshell-cmpl-cycle-completions nil
       eshell-scroll-to-bottom-on-input 'this)
 
@@ -31,6 +31,60 @@
 (with-eval-after-load 'em-hist
   (when (require 'consult nil t)
     (keymap-set eshell-hist-mode-map "C-r" #'consult-history)))
+
+;;; ---------------------------------------------------------------
+;;; Share history with zsh (~/.histfile)
+;;; ---------------------------------------------------------------
+(defvar my/zsh-histfile (expand-file-name "~/.histfile"))
+
+(defun my/zsh-history-entries ()
+  "Return commands from `my/zsh-histfile', oldest first."
+  (when (file-readable-p my/zsh-histfile)
+    (let (text lines entries buf)
+      (with-temp-buffer
+        (set-buffer-multibyte nil)
+        (insert-file-contents-literally my/zsh-histfile)
+        ;; zsh "metafies" odd bytes: 0x83 followed by (byte XOR 32)
+        (goto-char (point-min))
+        (while (search-forward "\203" nil t)
+          (when (< (point) (point-max))
+            (let ((c (logxor (char-after) 32)))
+              (delete-region (1- (point)) (1+ (point)))
+              (insert c))))
+        (setq text (decode-coding-string (buffer-string) 'utf-8 t)))
+      (setq lines (split-string text "\n" t))
+      (dolist (line lines)
+        ;; strip ": 1700000000:0;" (EXTENDED_HISTORY) at the start of an entry
+        (unless buf
+          (setq line (replace-regexp-in-string
+                      "\\`: [0-9]+:[0-9]+;" "" line)))
+        (if (string-suffix-p "\\" line)   ; multi-line command continues
+            (setq buf (concat buf (and buf "\n") (substring line 0 -1)))
+          (push (concat buf (and buf "\n") line) entries)
+          (setq buf nil)))
+      (nreverse entries))))
+
+(defun my/eshell-load-zsh-history ()
+  (let ((entries (nreverse (delete-dups (nreverse (my/zsh-history-entries))))))
+    ;; Size the ring to fit the file, so no history-size setting is needed.
+    (ring-resize eshell-history-ring (+ (length entries) 1000))
+    (dolist (e entries)
+      (unless (string-blank-p e)
+        (ring-insert eshell-history-ring e)))))
+
+;; Use zsh's file as the single source of truth, not Eshell's own file.
+(setq eshell-history-file-name nil
+      eshell-save-history-on-exit nil)
+(add-hook 'eshell-mode-hook #'my/eshell-load-zsh-history)
+
+;; Write new Eshell commands back so zsh sees them too (EXTENDED_HISTORY format).
+(defun my/eshell-append-to-zsh-history (input &rest _)
+  (unless (string-blank-p input)
+    (write-region (format ": %s:0;%s\n" (format-time-string "%s")
+                          (replace-regexp-in-string "\n" "\\\\\n"
+                                                    (string-trim-right input)))
+                  nil my/zsh-histfile 'append 'quiet)))
+(advice-add 'eshell-add-input-to-history :after #'my/eshell-append-to-zsh-history)
 
 ;;; ---------------------------------------------------------------
 ;;; PATH additions (same as your zsh initContent)
