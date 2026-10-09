@@ -20,6 +20,11 @@
 (setq-default tab-width 2); Tab space to 2
 (setq make-backup-files nil); No backup files
 
+
+;;New line macro for C/C++
+(defalias 'new-line (kmacro "\\ n"))
+(global-set-key (kbd "M-n") 'new-line)
+
 ;;Ace-window setup for easier window switch
 (global-set-key (kbd "M-o") 'ace-window)
 
