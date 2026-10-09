@@ -107,7 +107,7 @@
 ;;; Aliases
 ;;; ---------------------------------------------------------------
 (defun my/eshell-setup-aliases ()
-  (dolist (a '(("ls"          "eza --icons always --color=always -alh $*")
+  (dolist (a '(("ls"          "eza --icons always --color=always --total-size -alh $*")
                ("tree"        "eza -T --icons always --color=always $*")
                ("cat"         "bat --paging=never --color=always $*")
                ("lg"          "lazygit")
