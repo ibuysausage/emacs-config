@@ -1,6 +1,9 @@
-;; -*- lexical-binding: t; -*-
+;;; EmacsConfig --- ibuysausage emacs config -*- lexical-binding: t; -*-
+
+;;; Commentary:
 ;;Do M-x package-install-selected-packages on first run
 
+;;; Code:
 ;;Import files
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (require 'eshell-zsh-like)
@@ -9,7 +12,6 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 
-;;; Code:
 ;;Basic settings
 (menu-bar-mode -1) ;Disable top bar
 (tool-bar-mode -1) ;Disable tool bar
