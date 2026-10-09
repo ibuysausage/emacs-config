@@ -103,6 +103,9 @@
 (setq company-minimum-prefix-length 1
       company-idle-delay 0.0) ;; default is 0.2
 
+(with-eval-after-load 'company
+  (add-to-list 'company-backends '(company-files)))
+
 (require 'lsp-mode)
 (add-hook 'nix-mode-hook #'lsp)
 (add-hook 'rust-mode-hook #'lsp)
