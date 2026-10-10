@@ -6,8 +6,9 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
 	 '(ace-window auto-dim-other-buffers batppuccin dired-hide-dotfiles
-								esh-autosuggest eshell-syntax-highlighting flycheck
-								indent-bars lsp-mode lsp-ui magit nix-mode pcmpl-args
+								doom-modeline esh-autosuggest
+								eshell-syntax-highlighting flycheck indent-bars
+								lsp-mode lsp-ui magit nerd-icons nix-mode pcmpl-args
 								rust-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
