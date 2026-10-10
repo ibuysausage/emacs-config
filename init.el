@@ -147,6 +147,10 @@
 ;;Lsp-mode settings
 (setq lsp-keymap-prefix "C-c l")
 (setq lsp-format-buffer-on-save  t)
+;;Already have diagnostics from flycheck
+;;And sideline diagnostics just get in the way
+;;Especially with popup windows shown like magit
+(setq lsp-ui-sideline-show-diagnostics nil)
 
 ;;Company settings
 (setq company-minimum-prefix-length 1
