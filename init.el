@@ -10,6 +10,13 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+(use-package benchmark-init
+  :config
+  ;; Activate tracking as early as possible
+  (benchmark-init/activate)
+  ;; Stop tracking after init finishes to save memory
+  (add-hook 'after-init-hook #'benchmark-init/deactivate))
+
 ;;User generated options go in diff file
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)

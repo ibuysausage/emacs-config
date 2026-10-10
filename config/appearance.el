@@ -20,7 +20,6 @@
   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
 
 ;;Modeline config
-
 (use-package nerd-icons
 	:custom
 	(setq nerd-icons-scale-factor 1.2))
