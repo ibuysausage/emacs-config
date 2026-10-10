@@ -19,6 +19,13 @@
   (set-face-attribute 'fixed-pitch nil :family mono-spaced-font :height 1.0)
   (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
 
+;;Modeline config
+
+(use-package nerd-icons)
+(use-package doom-modeline
+  :init (doom-modeline-mode 1)
+	:config
+	(setq doom-modeline-height 40))
 
 ;;Auto-dim inactive windows
 (use-package auto-dim-other-buffers
