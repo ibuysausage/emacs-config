@@ -6,6 +6,10 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+;;All packages will be auto installed
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
 ;;User generated options go in diff file
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
