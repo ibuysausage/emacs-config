@@ -24,7 +24,9 @@
 ;;Lsp-mode settings
 (setq lsp-format-buffer-on-save  t
 			lsp-keymap-prefix "C-c l"
+			lsp-ui-doc-show-with-mouse nil
 			lsp-ui-doc-show-with-cursor t
+			lsp-ui-doc-position 'top
 			lsp-ui-sideline-show-diagnostics nil)
 
 ;;Company settings
@@ -36,12 +38,12 @@
 
 ;;Lsp hooks
 (require 'lsp-mode)
+(add-hook 'c++-mode-hook #'lsp)
+(add-hook 'c-mode-hook #'lsp)
+(add-hook 'haskell-literate-mode-hook #'lsp)
+(add-hook 'haskell-mode-hook #'lsp)
 (add-hook 'nix-mode-hook #'lsp)
 (add-hook 'rust-mode-hook #'lsp)
-(add-hook 'haskell-mode-hook #'lsp)
-(add-hook 'haskell-literate-mode-hook #'lsp)
-(add-hook 'c-mode-hook #'lsp)
-(add-hook 'c++-mode-hook #'lsp)
 
 ;;Nixd configuaration
 (setq lsp-nix-nixd-server-path "nixd"
