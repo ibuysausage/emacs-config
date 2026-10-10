@@ -4,8 +4,7 @@
 
 ;;Ace-window setup for easier window switch
 (use-package ace-window
-	:config
-	(global-set-key (kbd "M-o") 'ace-window))
+	:bind ("M-o" . ace-window))
 
 (defvar my/popup-extra-modes '(compilation-mode completion-list-mode Info-mode)
   "Modes treated as popups in addition to anything derived from `special-mode'.")
