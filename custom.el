@@ -5,9 +5,9 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ace-window auto-dim-other-buffers auto-package-update
-				auto-update-package batppuccin dashboard
-				dired-hide-dotfiles doom-modeline esh-autosuggest
+   '(ace-window auto-dim-other-buffers auto-package-update batppuccin
+				benchmark-init dashboard dired-hide-dotfiles
+				doom-modeline esh-autosuggest
 				eshell-syntax-highlighting flycheck indent-bars
 				lsp-mode lsp-ui magit nerd-icons nix-mode pcmpl-args
 				rust-mode)))
