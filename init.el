@@ -6,6 +6,13 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 
+;;Debug Emacs startup
+(use-package benchmark-init
+  :ensure t
+  :config
+  ;; To disable collection of benchmark data after init is done.
+  (add-hook 'after-init-hook 'benchmark-init/deactivate))
+
 ;;All packages will be auto installed
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
