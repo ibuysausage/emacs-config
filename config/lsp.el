@@ -5,7 +5,6 @@
 (use-package nix-mode
 	:mode "\\.nix\\'")
 (use-package rust-mode)
-
 (use-package lsp-mode
   :init
 	(setq lsp-format-buffer-on-save  t
@@ -32,7 +31,8 @@
 	(after-init . global-flycheck-mode)
   (after-init . global-flycheck-annotate-mode))
 	
-(use-package company :commands company-mode
+(use-package company
+	:commands company-mode
 	:init
 	(setq company-minimum-prefix-length 1
 				company-idle-delay 0.0)
