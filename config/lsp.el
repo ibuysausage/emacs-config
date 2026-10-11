@@ -3,8 +3,9 @@
 ;;; Code:
 
 (use-package nix-mode
-	:mode "\\.nix\\'")
-(use-package rust-mode)
+  :mode "\\.nix\\'")
+(use-package rust-mode
+  :mode ("\\.rs\\'"))
 (use-package lsp-mode
   :init
 	(setq lsp-format-buffer-on-save  t

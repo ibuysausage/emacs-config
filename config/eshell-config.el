@@ -201,4 +201,17 @@
       eshell-highlight-prompt nil)
 
 (provide 'eshell-zsh-like)
-;;; eshell-zsh-like.el ends here
+
+;; Opens eshell on Ctrl + Alt + Enter
+(defun eshell-other-window ()
+  "Create or visit an eshell buffer."
+  (interactive)
+  (if (not (get-buffer "*eshell*"))
+      (progn
+        (split-window-sensibly (selected-window))
+        (other-window 1)
+        (eshell))
+    (switch-to-buffer-other-window "*eshell*")))
+
+(global-set-key (kbd "C-M-<return>") 'eshell-other-window)
+;;; eshell-config.el ends here
