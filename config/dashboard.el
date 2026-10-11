@@ -5,7 +5,7 @@
 ;; dashboard-open to manually open
 (use-package dashboard
 	:init
-	(setq initial-buffer-choice 'dashboard-open)
+	(setq initial-buffer-choice 'dashboard-open) ; Sets dashboard for emacsclient
 	(setq dashboard-banner-logo-title "ibuysausage")
 	(setq dashboard-startup-banner "~/.emacs.d/marivector.png")
 	(setq dashboard-center-content t)
