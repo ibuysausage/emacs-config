@@ -5,6 +5,8 @@ auto-save-list/
 eln-cache/
 elpa
 .lsp*
+.last-package-update-day
 transient/
 eshell/
 lisp
+recentf.eld
