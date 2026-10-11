@@ -8,7 +8,7 @@
 (setq make-backup-files nil)      ; No backup files
 (setq ring-bell-function 'ignore) ; Disable ring bell
 (global-prettify-symbols-mode t)  ; Prettify symbols mode
-(global-hl-line-mode t)           ; Highlight current line
+
 
 ;; Indentation
 (setq-default tab-width 4)
@@ -21,6 +21,10 @@
 ;; Line numbers break some modes and look bad
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 (add-hook 'text-mode-hook 'display-line-numbers-mode)
+
+;; Highlight line looks bad in vterm
+(add-hook 'prog-mode-hook 'hl-line-mode)
+(add-hook 'text-mode-hook 'hl-line-mode)
 
 ;; Catppuccin is best theme
 (use-package batppuccin
