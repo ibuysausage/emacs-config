@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+;; dashboard-open to manually open
 (use-package dashboard
   :config
   (dashboard-setup-startup-hook))
