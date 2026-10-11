@@ -30,7 +30,7 @@
 
 ;;Auto-dim inactive windows
 (use-package auto-dim-other-buffers
-	:hook after-init
+	:hook (after-init . auto-dim-other-buffers-mode)
 	:init
 	(setq-default cursor-in-non-selected-windows nil)
 	:config
