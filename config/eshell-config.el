@@ -116,6 +116,7 @@
                ("no"          "yes n")
                ("grabs"       "grim -g ${slurp}")
                ("dockerclean" "docker system prune -a --volumes")
+			   ("restarte"    "systemctl --user restart emacs")
                ("c"           "clear")
                ("ff"          "clear")))
     (apply #'eshell/alias a)))
