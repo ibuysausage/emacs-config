@@ -21,11 +21,11 @@
 
 ;;Modeline config
 (use-package nerd-icons
-	:custom
+	:config
 	(setq nerd-icons-scale-factor 1.2))
 (use-package doom-modeline
-	:custom
-	(setq doom-modeline-height 40)
+	:config
+	(setq doom-modeline-height 35)
   :init (doom-modeline-mode 1))
 
 ;;Auto-dim inactive windows
