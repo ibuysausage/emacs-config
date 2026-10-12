@@ -4,6 +4,18 @@
 
 (setq use-short-answers t) ; yes/no -> y/n
 
+(defun kill-all-buffers ()
+  "Kill all buffers except default Emacs buffers and *dashboard*."
+  (interactive)
+  (let ((keep-buffers '("*scratch*" "*Messages*" "*dashboard*")))
+    (dolist (buffer (buffer-list))
+      (with-current-buffer buffer
+        (unless (or (member (buffer-name) keep-buffers)
+                    (string-prefix-p " " (buffer-name)))
+          (kill-buffer buffer))))))
+
+(global-set-key (kbd "C-c k") #'kill-all-buffers)
+
 ;; Don't ask when killing a buffer with a live
 ;; process attched. For vterm
 (setq kill-buffer-query-functions
