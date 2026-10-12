@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defalias 'yes-or-no-p 'y-or-n-p) ; yes/no -> y/n
+(setq use-short-answers t) ; yes/no -> y/n
 
 ;; Auto update pkgs
 (use-package auto-package-update
