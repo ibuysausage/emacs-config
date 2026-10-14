@@ -63,4 +63,10 @@
                '(line-number . (auto-dim-other-buffers-face . nil)))
   (add-to-list 'auto-dim-other-buffers-affected-faces
                '(line-number-current-line . (auto-dim-other-buffers-face . nil))))
+
+;; Color code highlighting
+(use-package rainbow-mode
+  :hook
+  (prog-mode . rainbow-mode))
+
 ;;; appearance.el ends here

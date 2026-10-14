@@ -8,7 +8,7 @@
    '(ace-window auto-dim-other-buffers auto-package-update batppuccin
 				benchmark-init company dashboard dired-hide-dotfiles
 				doom-modeline flycheck indent-bars lsp-mode lsp-ui
-				magit nerd-icons nix-mode rust-mode vterm)))
+				magit nerd-icons nix-mode rainbow-mode rust-mode vterm)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
