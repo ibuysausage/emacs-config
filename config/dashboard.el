@@ -11,7 +11,8 @@
   (dashboard-center-content t)            ; Center content
   (dashboard-vertically-center-content t) ; Center content
   (dashboard-banner-logo-title "ibuysausage")
-  (dashboard-items '((recents   . 9)))
+  (dashboard-items '((recents   . 9)
+					 (projects  . 3)))
   :config
   (dashboard-setup-startup-hook))
 
