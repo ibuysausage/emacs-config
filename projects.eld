@@ -1,0 +1,2 @@
+;;; -*- lisp-data -*-
+(("/etc/nixos/"))
