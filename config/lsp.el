@@ -52,7 +52,12 @@
 				 (nix-mode)
 				 (c-mode)
 				 (c++-mode)))
-				 
+
+;; Snippets
+(use-package yasnippet
+  :config
+  (yas-global-mode 1))
+
 ;;Auto pair + indent
 (add-hook 'prog-mode-hook #'electric-pair-mode)
 (add-hook 'prog-mode-hook #'indent-bars-mode)
