@@ -33,12 +33,21 @@
   (after-init . global-flycheck-annotate-mode))
 	
 (use-package company
-	:commands company-mode
-	:init
-	(setq company-minimum-prefix-length 1
-				company-idle-delay 0.0)
-	:config
-	(add-to-list 'company-backends '(company-files)))
+  :commands company-mode
+  :init
+  (setq company-minimum-prefix-length 1
+        company-idle-delay 0.0)
+  :config
+  (add-to-list 'company-backends '(company-files))
+
+  (defun my/company-yas-tab ()
+    "Expand a yasnippet if the word at point is a trigger, else complete."
+    (interactive)
+    (unless (yas-expand)
+      (company-complete-common)))
+
+  (define-key company-active-map (kbd "<tab>") #'my/company-yas-tab)
+  (define-key company-active-map (kbd "TAB")   #'my/company-yas-tab))
 
 (use-package lsp-ui :commands lsp-ui-mode)
 (use-package which-key
