@@ -1,2 +1,2 @@
 ;;; -*- lisp-data -*-
-(("/etc/nixos/"))
+(("/home/byte/c/") ("/etc/nixos/"))
