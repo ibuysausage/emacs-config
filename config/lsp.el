@@ -13,7 +13,8 @@
 				lsp-ui-doc-show-with-mouse nil
 				lsp-ui-doc-show-with-cursor t
 				lsp-ui-doc-position 'top
-				lsp-ui-sideline-show-diagnostics nil)
+				lsp-ui-sideline-show-diagnostics nil
+				lsp-enable-on-type-formatting nil)
   :hook (
          (lsp-mode . lsp-enable-which-key-integration)
 				 (c++-mode . lsp)
