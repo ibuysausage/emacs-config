@@ -8,7 +8,7 @@
 (setq make-backup-files nil)      ; No backup files
 (setq ring-bell-function 'ignore) ; Disable ring bell
 (global-prettify-symbols-mode t)  ; Prettify symbols mode
-
+(setq-default cursor-type 'bar)   ; Cursor to line
 
 ;; Indentation
 (setq-default tab-width 2)
