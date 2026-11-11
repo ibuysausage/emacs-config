@@ -26,6 +26,10 @@
 (add-hook 'prog-mode-hook 'hl-line-mode)
 (add-hook 'text-mode-hook 'hl-line-mode)
 
+;; Transparency NOTE: on nixos emacs-gtk is required package
+(set-frame-parameter nil 'alpha-background 85)
+(add-to-list 'default-frame-alist '(alpha-background . 85))
+
 ;; Catppuccin is best theme
 (use-package batppuccin
 	:config
