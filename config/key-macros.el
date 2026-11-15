@@ -46,11 +46,6 @@
   (interactive "p")
   (my/popup-resize (* (or n 1) my/popup-step)))
 
-;; Newline char for C/C++
-(defalias 'linechar (kmacro "\\ n"))
-(global-set-key (kbd "M-n") 'linechar)
-
-
 (global-set-key (kbd "M-]") #'my/popup-shrink)
 (global-set-key (kbd "M-[") #'my/popup-enlarge)
 
