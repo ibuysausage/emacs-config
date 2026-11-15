@@ -7,6 +7,8 @@
 	:bind ("M-o" . ace-window))
 (use-package windsize
 	:config
+	(windsize-cols 4)
+	(windsize-rows 4)
 	(windsize-default-keybindings))
 
 ;;; key-macros.el ends here
