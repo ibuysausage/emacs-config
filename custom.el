@@ -5,11 +5,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ace-window auto-dim-other-buffers auto-package-update batppuccin
-				benchmark-init company dashboard dired-hide-dotfiles
-				doom-modeline flycheck indent-bars lsp-mode lsp-ui
-				magit nerd-icons nix-mode rainbow-mode rust-mode vterm
-				yasnippet)))
+	 '(ace-window auto-dim-other-buffers auto-package-update batppuccin
+								benchmark-init company dashboard dired-hide-dotfiles
+								doom-modeline flycheck indent-bars lsp-mode lsp-ui
+								magit nerd-icons nix-mode rainbow-mode rust-mode vterm
+								windsize yasnippet)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
