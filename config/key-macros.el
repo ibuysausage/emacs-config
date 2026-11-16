@@ -5,10 +5,13 @@
 ;;Ace-window setup for easier window switch
 (use-package ace-window
 	:bind ("M-o" . ace-window))
+
 (use-package windsize
+	:bind(("M-["  . windsize-left)
+				("M-]" . windsize-right))
 	:config
-	(windsize-cols 4)
-	(windsize-rows 4)
+	(setq windsize-cols 4)
+	(setq windsize-rows 4)
 	(windsize-default-keybindings))
 
 ;;; key-macros.el ends here
