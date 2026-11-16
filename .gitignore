@@ -9,7 +9,5 @@ elpa
 transient/
 eshell/
 lisp
-recentf.eld
 tramp
-projects.eld
-recentf.eld
+*.eld
